@@ -16,14 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-Route::get('/login',[SesiController::class,'index']);
+Route::middleware(['guest'])->group(function(){
+Route::get('/login',[SesiController::class,'index'])->name('login');
 Route::post('/login',[SesiController::class,'login']);
 
 Route::get('/', function () {
     return view('welcome');
 });
+});
+
 // Route::resource('/posts', \App\Http\Controllers\PostController::class);
+Route::middleware(['auth'])->group(function(){
 Route::get('/logout',[SesiController::class,'logout']);
 
 Route::get('/dashboard',[\App\Http\Controllers\DashboardController::class,'index']);
@@ -34,3 +37,13 @@ Route::get('/customers/{id}/edit',[\App\Http\Controllers\CustomerController::cla
 Route::put('/customers/{id}',[\App\Http\Controllers\CustomerController::class,'update']);
 Route::delete('/customers/{id}',[\App\Http\Controllers\CustomerController::class,'destroy']);
 
+
+Route::get('/produks',[\App\Http\Controllers\ProdukController::class,'index']);
+Route::post('/produks',[\App\Http\Controllers\ProdukController::class,'store']);
+Route::get('/produks/create',[\App\Http\Controllers\ProdukController::class,'create']);
+Route::get('/produks/{id}/edit',[\App\Http\Controllers\ProdukController::class,'edit']);
+Route::put('/produks/{id}',[\App\Http\Controllers\ProdukController::class,'update']);
+Route::delete('/produks/{id}',[\App\Http\Controllers\ProdukController::class,'destroy']);
+});
+
+Route::resource('/produks', \App\Http\Controllers\ProdukController::class);
