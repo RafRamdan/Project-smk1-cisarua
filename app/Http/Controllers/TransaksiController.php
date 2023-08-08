@@ -2,49 +2,50 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produk;
-use App\Models\Picture;
 use Illuminate\Http\Request;
+use App\Models\transaksi;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Fancades\Storage;
 
 
-class ProdukController extends Controller
+class TransaksiController extends Controller
 {
     public function index()
     {
-        $produks = Produk::all();
+        $transaksi = transaksi::all();
 
-        return view('produks.index',compact(['produks']));
+        return view('transaksi.index',compact(['transaksi']));
     }
 
     public function create()
     {
-        return view('produks.create');
+        return view('transaksi.create');
     }
 
     public function store(Request $request)
     {
     //    dd($request->all());
         $request->validate([
+            'transaksi' => 'required',
+            'name_customer' => 'required|min:5',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'name_produk' => 'required|min:5',
-            'max_length' => 'required',
-            'length' => 'required',
-            'width' => 'required',
-            'height' => 'required',
         ]);
 
         $image =$request->file('image');
         $image->storeAs('public/produks', $image->hashName());
-        $produk = Produk::create([
+        $transaksi = transaksi::create([
+            'transaksi'=> $request->transaksi,
+            'name_customer'=> $request->name_customer,
+            'email'=> $request->email,
+            'phone'=> $request->phone,
+            'address'=> $request->address,
             'image' => $image->hashName(),
             'name_produk'=> $request->name_produk,
-            'max_length'=> $request->max_length,
-            'length'=> $request->length,
-            'width'=> $request->width,
-            'height'=> $request->height,
         ]);
 
         // foreach ($request->file('files') as $file) {
@@ -56,37 +57,39 @@ class ProdukController extends Controller
         //     ]);
         // }
 
-        return redirect('/produks')->with('success','Data Produk berhasil ditambahkan.');
+        return redirect('/transaksi')->with('success','Data Transaksi berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
-        $produk = Produk::find($id);
-        return view('produks.edit',compact(['produk']));
+        $transaksi = transaksi::find($id);
+        return view('transaksi.edit',compact(['transaksi']));
     }
 
     public function update(Request $request,$id)
     {
         $request->validate([
+            'transaksi' => 'required',
+            'name_customer' => 'required|min:5',
+            'email' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
             'name_produk' => 'required|min:5',
-            'max_length' => 'required',
-            'length' => 'required',
-            'width' => 'required',
-            'height' => 'required',
         ]);
 
         $image =$request->file('image');
         $image->storeAs('public/produks', $image->hashName());
         
-        $produk = Produk::find($id);
-        $produk->update([
+        $transaksi = transaksi::find($id);
+        $transaksi->update([
+            'transaksi'=> $request->transaksi,
+            'name_customer'=> $request->name_customer,
+            'email'=> $request->email,
+            'phone'=> $request->phone,
+            'address'=> $request->address,
             'image' => $image->hashName(),
             'name_produk'=> $request->name_produk,
-            'max_length'=> $request->max_length,
-            'length'=> $request->length,
-            'width'=> $request->width,
-            'height'=> $request->height,
         ]);
 
         // foreach ($request->file('files') as $file) {
@@ -98,15 +101,15 @@ class ProdukController extends Controller
         //     ]);
         // }
 
-        return redirect('produks')->with('success','Data Produk berhasil diubah.');
+        return redirect('transaksi')->with('success','Data Transaksi berhasil diubah.');
     }
 
     public function destroy($id)
     {
-        $produk = Produk::find($id);
+        $transaksi = transaksi::find($id);
 
        
-        $produk->delete();
-        return redirect('produks')->with('success','Data Produk berhasil dihapus');
+        $transaksi->delete();
+        return redirect('transaksi')->with('success','Data Transaksi berhasil dihapus');
     }
 }

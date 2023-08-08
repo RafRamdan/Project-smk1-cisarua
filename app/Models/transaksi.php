@@ -10,11 +10,15 @@ class transaksi extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $primaryKey = 'id_transaksi';
+    // public function transaksi(){
+    //     return $this->hasMany(Produk::class)
+    // }
 
-    public function allData(){
-        return DB::table('transaksi')
-        ->leftJoin('customers', 'customers.id_customer', '=', 'transaksi.id_customer')
-        ->leftJoin('produks', 'produks.id_produk', '=', 'transaksi.id_produk')
-        ->get();
-    }
+    // public function allData(){
+    //     return DB::table('transaksi')
+    //     ->Join('customers', 'customers.id_customer', '=', 'transaksi.id_customer')
+    //     ->Join('produks', 'produks.id_produk', '=', 'transaksi.id_produk')
+    //     ->get();
+    // }
 }

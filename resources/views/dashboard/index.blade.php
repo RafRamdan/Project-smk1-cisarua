@@ -5,27 +5,38 @@
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
-          <h6>produks</h6>
-          <a href="/produks/create" class="btn btn-primary float-end">Add</a>
+          <h6>Transaksi</h6>
+          {{-- <a href="/produks/create" class="btn btn-primary float-end">Add</a> --}}
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Max Length</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Length</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Weight</th>
-                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Height</th>
-                  <th class="text-secondary opacity-7">Actions</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">NO</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Keterangan</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Customer</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">email</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Alamat</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama Barang</th>
                 </tr>
               </thead>
               <tbody>
+                <?php $no=1; ?>
 
-                @foreach ($collection as $item)
-                    
-                @endforeach
+                {{-- @foreach ($transaksi as $data)
+                    <tr>
+                      <td>{{ $no++ }}</td>
+                      <td>{{ $data->transaksi }}</td>
+                      <td>{{ $data->name_customer }}</td>
+                      <td>{{ $data->email }}</td>
+                      <td>{{ $data->address }}</td>
+                      <td>
+                        <img src="{{ asset('/storage/produks/'.$data->image) }}" class="rounded" style="width: 150px">
+                        {{ $data->name_produk }}
+                      </td>
+                    </tr>
+                @endforeach --}}
                   {{-- @foreach ($produks as $produk) --}}
                   {{-- {{ dd($produk->pictures) }} --}}
                   {{-- <tr>

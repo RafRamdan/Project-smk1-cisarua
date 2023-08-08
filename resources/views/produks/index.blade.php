@@ -31,15 +31,15 @@
                      --}}
                       {{-- @endif --}}
                       <img src="{{ asset('/storage/produks/'.$produk->image) }}" class="rounded" style="width: 150px">
-                      {{ $produk->name }}
+                      {{ $produk->name_produk }}
                     </td>
                     <td>{{ $produk->max_length }} Kg </td>
                     <td>{{ $produk->length }} cm </td>
                     <td>{{ $produk->width }}</td>
                     <td>{{ $produk->height }}</td>
                     <td>
-                        <a href="/produks/{{ $produk->id }}/edit" class="btn btn-warning">Edit</a>
-                        <form action="/produks/{{ $produk->id }}" method="POST">
+                        <a href="/produks/{{ $produk->id_produk }}/edit" class="btn btn-warning">Edit</a>
+                        <form action="/produks/{{ $produk->id_produk }}" method="POST">
                         @method("DELETE")
                         @csrf
                         <input type="submit"  class="btn btn-danger" value="Delete">

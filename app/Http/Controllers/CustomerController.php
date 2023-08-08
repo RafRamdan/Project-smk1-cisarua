@@ -22,13 +22,13 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:5',
+            'name_customer' => 'required|min:5',
             'email' => 'required|email',
             'phone' => 'required',
             'address' => 'required',
         ]);
         Customer::create([
-            'name'=> $request->name,
+            'name_customer'=> $request->name_customer,
             'email'=> $request->email,
             'phone'=> $request->phone,
             'address'=> $request->address,
@@ -46,14 +46,14 @@ class CustomerController extends Controller
     public function update(Request $request,$id)
     {
         $request->validate([
-            'name' => 'required|min:5',
+            'name_customer' => 'required|min:5',
             'email' => 'required|email',
             'phone' => 'required',
             'address' => 'required',
         ]);
         $customer = Customer::find($id);
         $customer->update([
-            'name'=> $request->name,
+            'name_customer'=> $request->name_customer,
             'email'=> $request->email,
             'phone'=> $request->phone,
             'address'=> $request->address,

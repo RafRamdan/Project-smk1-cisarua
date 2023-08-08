@@ -18,12 +18,12 @@
                 </ul>
             </div>
             @endif
-            <form action="/produks/{{ $produk->id }}" method="POST" enctype="multipart/form-data">
+            <form action="/produks/{{ $produk->id_produk }}" method="POST" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" value="{{ $produk->name }}">
+                  <input name="name_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" value="{{ $produk->name_produk }}">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Max Length</label>
                   <input name="max_length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Max Length"value="{{ $produk->max_length }}">

@@ -22,7 +22,7 @@
                 @csrf
                 <div class="form-group">
                   <label for="exampleInputEmail1">Name</label>
-                  <input name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                  <input name="name_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Max Length</label>
                   <input name="max_length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Max Length">

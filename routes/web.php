@@ -33,17 +33,25 @@ Route::get('/dashboard',[\App\Http\Controllers\DashboardController::class,'index
 Route::get('/customers',[\App\Http\Controllers\CustomerController::class,'index']);
 Route::post('/customers',[\App\Http\Controllers\CustomerController::class,'store']);
 Route::get('/customers/create',[\App\Http\Controllers\CustomerController::class,'create']);
-Route::get('/customers/{id}/edit',[\App\Http\Controllers\CustomerController::class,'edit']);
-Route::put('/customers/{id}',[\App\Http\Controllers\CustomerController::class,'update']);
-Route::delete('/customers/{id}',[\App\Http\Controllers\CustomerController::class,'destroy']);
+Route::get('/customers{id_customer}/edit',[\App\Http\Controllers\CustomerController::class,'edit']);
+Route::put('/customers/{idcustomer}',[\App\Http\Controllers\CustomerController::class,'update']);
+Route::delete('/customers/{id_customer}',[\App\Http\Controllers\CustomerController::class,'destroy']);
 
 
 Route::get('/produks',[\App\Http\Controllers\ProdukController::class,'index']);
 Route::post('/produks',[\App\Http\Controllers\ProdukController::class,'store']);
 Route::get('/produks/create',[\App\Http\Controllers\ProdukController::class,'create']);
-Route::get('/produks/{id}/edit',[\App\Http\Controllers\ProdukController::class,'edit']);
-Route::put('/produks/{id}',[\App\Http\Controllers\ProdukController::class,'update']);
-Route::delete('/produks/{id}',[\App\Http\Controllers\ProdukController::class,'destroy']);
+Route::get('/produks/{id_produk}/edit',[\App\Http\Controllers\ProdukController::class,'edit']);
+Route::put('/produks/{id_produk}',[\App\Http\Controllers\ProdukController::class,'update']);
+Route::delete('/produks/{id_produk}',[\App\Http\Controllers\ProdukController::class,'destroy']);
 });
 
 Route::resource('/produks', \App\Http\Controllers\ProdukController::class);
+
+
+Route::get('/transaksi',[\App\Http\Controllers\TransaksiController::class,'index']);
+Route::post('/transaksi',[\App\Http\Controllers\TransaksiController::class,'store']);
+Route::get('/transaksi/create',[\App\Http\Controllers\TransaksiController::class,'create']);
+Route::get('/transaksi/{id_transaksi}/edit',[\App\Http\Controllers\TransaksiController::class,'edit']);
+Route::put('/transaksi/{id_transaksi}',[\App\Http\Controllers\TransaksiController::class,'update']);
+Route::delete('/transaksi/{id_transaksi}',[\App\Http\Controllers\TransaksiController::class,'destroy']);
