@@ -24,6 +24,7 @@
                   @foreach ($customers as $customer)
                   
                   <tr>
+                    {{-- <td>{{ $customer->transaksis->transaksi ?? 'None' }}</td> --}}
                     <td>{{ $customer->name_customer }}</td>
                     <td>{{ $customer->email }}</td>
                     <td>{{ $customer->phone }}</td>

@@ -10,5 +10,12 @@ class Customer extends Model
     use HasFactory;
     protected $primaryKey = 'id_customer';
     protected $guarded = [];
+    protected $table = "customers";
+    protected $fillable = ['id_customer','transaksi_id', 'name_customer', 'email', 'address'];
+
+    public function transaksis()
+    {
+        return $this->hasMany(transaksi::class);
+    }
 
 }

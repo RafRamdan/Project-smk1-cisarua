@@ -18,22 +18,32 @@
                 </ul>
             </div>
             @endif
-            <form action="/customers/{{ $customer->id_customer }}" method="POST">
+            <form action="/transaksi/{{ $transaksi->id_transaksi }}" method="POST">
                 @method('put')
                 @csrf
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input name="name_customer" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" value="{{ $customer->name_customer }}">
+                  <label for="exampleInputEmail1">Keterangan transaksi</label>
+                  <input name="transaksi" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Keterangan" value="{{ $transaksi->transaksi }}">
+                </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email</label>
-                  <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"value="{{ $customer->email }}">
+                  <label for="exampleInputEmail1">Nama customer</label>
+                  <select class="form-control select2" style="width: 100%" name="id_customer" id="id_customer">
+                  <option disabled value>Pilih Customer</option>
+                  <option value="{{ $transaksi->id_customer }}">{{ $transaksi->customers->name_customer }}</option>
+                  @foreach ($transak as $item)
+                  <option value="{{ $item->id_customer }}">{{ $item->name_customer }}</option>
+                  @endforeach
+                  </select>
+                </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Phone</label>
-                  <input name="phone" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Phone"value="{{ $customer->phone }}">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Address</label>
-                  <input name="address" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address"value="{{ $customer->address }}">
-                
+                  <label for="exampleInputEmail1">Nama produk</label>
+                  <select class="form-control select2" style="width: 100%" name="id_produk" id="id_produk">
+                  <option disabled value>Pilih produk</option>
+                  <option value="{{ $transaksi->id_produk }}">{{ $transaksi->produks->name_produk }}</option>
+                  @foreach ($transik as $item)
+                  <option value="{{ $item->id_produk }}">{{ $item->name_produk }}</option>
+                  @endforeach
+                  </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
               </form>
