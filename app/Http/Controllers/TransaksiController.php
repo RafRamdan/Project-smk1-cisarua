@@ -36,7 +36,7 @@ class TransaksiController extends Controller
             'id_produk' => 'required',
         ]);
 
-        
+        $image =$request->file('image');
         $transaksi = transaksi::create([
             
             'transaksi'=> $request->transaksi,
@@ -74,6 +74,7 @@ class TransaksiController extends Controller
         ]);
 
       
+        $image =$request->file('image');
         
         $transaksi = transaksi::find($id);
         $transaksi->update([

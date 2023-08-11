@@ -21,25 +21,25 @@
             <form action="/produks" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input name="name_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
+                  <label for="exampleInputEmail1">Nama Produk</label>
+                  <input name="name_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Max Length</label>
-                  <input name="max_length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Max Length">
+                  <label for="exampleInputEmail1">Max Panjang</label>
+                  <input name="max_length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Max Panjang">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Length</label>
-                  <input name="length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Length">
+                  <label for="exampleInputEmail1">Panjang</label>
+                  <input name="length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Panjang">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Weight</label>
-                  <input name="width" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Width">
+                  <label for="exampleInputEmail1">Lebar</label>
+                  <input name="width" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Lebar">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Height</label>
-                  <input name="height" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Height">
+                  <label for="exampleInputEmail1">Tinggi</label>
+                  <input name="height" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tinggi">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Pictures</label>
-                  <input name="image" type="file" @error('image') is-invalid @enderror class="form-control" multiple id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Height">
+                  <label for="exampleInputEmail1">Gambar Produk</label>
+                  <input name="image" type="file" @error('image') is-invalid @enderror class="form-control" multiple id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Gambar">
                   @error('image')
                   <div class="alert alert-danger mt-2">
                     {{ $message }}

@@ -22,24 +22,24 @@
                 @method('put')
                 @csrf
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Name</label>
-                  <input name="name_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" value="{{ $produk->name_produk }}">
+                  <label for="exampleInputEmail1">Nama Produk</label>
+                  <input name="name_produk" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nama" value="{{ $produk->name_produk }}">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Max Length</label>
-                  <input name="max_length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Max Length"value="{{ $produk->max_length }}">
+                  <label for="exampleInputEmail1">Max Panjang</label>
+                  <input name="max_length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Max Panjang"value="{{ $produk->max_length }}">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Length</label>
-                  <input name="length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Length"value="{{ $produk->length }}">
+                  <label for="exampleInputEmail1">Panjang</label>
+                  <input name="length" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Panjang"value="{{ $produk->length }}">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Weight</label>
-                  <input name="width" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Width"value="{{ $produk->width }}">
+                  <label for="exampleInputEmail1">Lebar</label>
+                  <input name="width" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Lebar"value="{{ $produk->width }}">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Height</label>
-                  <input name="height" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Height"value="{{ $produk->height }}">
+                  <label for="exampleInputEmail1">Tinggi</label>
+                  <input name="height" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Tinggi"value="{{ $produk->height }}">
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Pictures</label>
-                  <input name="image" type="file" class="form-control" multiple id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Height">
+                  <label for="exampleInputEmail1">Gambar Produk</label>
+                  <input name="image" type="file" class="form-control" multiple id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Gambar">
                   @error('image')
                   <div class="alert alert-danger mt-2">
                     {{ $message }}

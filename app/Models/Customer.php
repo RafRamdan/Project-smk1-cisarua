@@ -11,7 +11,7 @@ class Customer extends Model
     protected $primaryKey = 'id_customer';
     protected $guarded = [];
     protected $table = "customers";
-    protected $fillable = ['id_customer','transaksi_id', 'name_customer', 'email', 'address'];
+    protected $fillable = ['id_customer','transaksi_id', 'name_customer', 'email','phone', 'address'];
 
     public function transaksis()
     {

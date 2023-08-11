@@ -44,10 +44,7 @@ Route::get('/produks/create',[\App\Http\Controllers\ProdukController::class,'cre
 Route::get('/produks/{id_produk}/edit',[\App\Http\Controllers\ProdukController::class,'edit']);
 Route::put('/produks/{id_produk}',[\App\Http\Controllers\ProdukController::class,'update']);
 Route::delete('/produks/{id_produk}',[\App\Http\Controllers\ProdukController::class,'destroy']);
-});
-
 Route::resource('/produks', \App\Http\Controllers\ProdukController::class);
-
 
 Route::get('/transaksi',[\App\Http\Controllers\TransaksiController::class,'index']);
 Route::post('/transaksi',[\App\Http\Controllers\TransaksiController::class,'store']);
@@ -55,3 +52,5 @@ Route::get('/transaksi/create',[\App\Http\Controllers\TransaksiController::class
 Route::get('/transaksi/{id_transaksi}/edit',[\App\Http\Controllers\TransaksiController::class,'edit']);
 Route::put('/transaksi/{id_transaksi}',[\App\Http\Controllers\TransaksiController::class,'update']);
 Route::delete('/transaksi/{id_transaksi}',[\App\Http\Controllers\TransaksiController::class,'destroy']);
+});
+

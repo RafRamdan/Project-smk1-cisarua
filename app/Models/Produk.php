@@ -11,7 +11,7 @@ class Produk extends Model
     protected $guarded = [];
     protected $primaryKey = 'id_produk';
     protected $table = "produks";
-    protected $fillable = ['id_produk', 'image', 'name_produk'];
+    protected $fillable = ['id_produk', 'image', 'name_produk', 'max_length', 'length', 'height','width'];
 
     public function transaksis()
     {
