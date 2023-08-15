@@ -17,18 +17,18 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['guest'])->group(function(){
-Route::get('/login',[SesiController::class,'index'])->name('login');
-Route::post('/login',[SesiController::class,'login']);
-
-Route::get('/', function () {
-    return view('welcome');
-});
+    Route::get('/login',[SesiController::class,'index'])->name('login');
+    Route::post('/login',[SesiController::class,'login']);
+    
 });
 
 // Route::resource('/posts', \App\Http\Controllers\PostController::class);
 Route::middleware(['auth'])->group(function(){
 Route::get('/logout',[SesiController::class,'logout']);
 
+Route::get('/', function () {
+return view('/welcome');
+});
 Route::get('/dashboard',[\App\Http\Controllers\DashboardController::class,'index']);
 Route::get('/customers',[\App\Http\Controllers\CustomerController::class,'index']);
 Route::post('/customers',[\App\Http\Controllers\CustomerController::class,'store']);
