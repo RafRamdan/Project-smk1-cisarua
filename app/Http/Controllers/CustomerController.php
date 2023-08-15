@@ -11,7 +11,8 @@ class CustomerController extends Controller
     {
         $customers = Customer::paginate(2);
 
-        return view('customers.index',compact(['customers']));
+        return view('customers.index',
+        compact(['customers']));
     }
 
     public function create()

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Fancades\DB;
 use Illuminate\Http\Request;
 use App\Models\transaksi;
 
@@ -20,4 +21,5 @@ class DashboardController extends Controller
         return view('dashboard.index');
         // , $data);
     }
+    
 }

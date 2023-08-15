@@ -1,5 +1,8 @@
 @extends('layouts.master')
 
+@section('page')
+    Produks
+@endsection
 @section('content')
 <div class="row">
     <div class="col-12">
