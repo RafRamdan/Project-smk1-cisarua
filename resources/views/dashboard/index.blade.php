@@ -4,12 +4,53 @@
     Dashboard
 @endsection
 @section('content')
-<div class="row">
+@foreach ($transaksis as $transaksi)
+<div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+  <div class="col mb-5 ">
+    <div class="card h-100">
+      <!-- Sale badge-->
+     
+      <!-- Product image-->
+      <img class="card-img-top" src="{{ asset('/storage/produks/'.$transaksi->produks->image) }}" alt="...">
+      <!-- Product details-->
+      <div class="card-body card-body-custom pt-4">
+        <div class="text-center">
+          <!-- Product name-->
+          <h5 class="fw-bolder"> {{ $transaksi->produks->name_produk }}</h5>
+          <!-- Product price-->
+          <div class="rent-price mb-3">
+            <span class="text-primary"></span>
+          </div>
+          <ul class="list-unstyled list-style-group">
+            <li class="border-bottom p-2 d-flex justify-content-between">
+              <span>Nama:</span>
+              <span style="font-weight: 600">{{ $transaksi->customers->name_customer }}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Product actions-->
+      <div class="card-footer border-top-0 bg-transparent">
+        <div class="text-center">
+          
+          <a class="btn btn-info mt-auto text-white" href="/dashboard/{{ $transaksi->id_transaksi }}/detail">Detail</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+@endforeach
+<div class="card-footer">
+  {{ $transaksis->links()  }}
+</div>
+{{-- <div class="row">
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
           <h6>Transaksi</h6>
-          {{-- <a href="/produks/create" class="btn btn-primary float-end">Add</a> --}}
+         
         </div>
         <div class="card-body px-0 pt-0 pb-2">
           <div class="table-responsive p-0">
@@ -25,46 +66,9 @@
                 </tr>
               </thead>
               <tbody>
-                <?php $no=1; ?>
+                
 
-                {{-- @foreach ($transaksi as $data)
-                    <tr>
-                      <td>{{ $no++ }}</td>
-                      <td>{{ $data->transaksi }}</td>
-                      <td>{{ $data->name_customer }}</td>
-                      <td>{{ $data->email }}</td>
-                      <td>{{ $data->address }}</td>
-                      <td>
-                        <img src="{{ asset('/storage/produks/'.$data->image) }}" class="rounded" style="width: 150px">
-                        {{ $data->name_produk }}
-                      </td>
-                    </tr>
-                @endforeach --}}
-                  {{-- @foreach ($produks as $produk) --}}
-                  {{-- {{ dd($produk->pictures) }} --}}
-                  {{-- <tr>
-                    <td> --}}
-                      {{-- @if($prodak->pictures->isNotEmpty()) --}}
-                     {{-- <img  class="img-thumbnail" width="150" src="/uploads/{{ $prodak->pictures()->first()->filename }}" alt="" >
-                     --}}
-                      {{-- @endif --}}
-                      {{-- <img src="{{ asset('/storage/produks/'.$produk->image) }}" class="rounded" style="width: 150px">
-                      {{ $produk->name }}
-                    </td>
-                    <td>{{ $produk->max_length }} Kg </td>
-                    <td>{{ $produk->length }} cm </td>
-                    <td>{{ $produk->width }}</td>
-                    <td>{{ $produk->height }}</td>
-                    <td>
-                        <a href="/produks/{{ $produk->id }}/edit" class="btn btn-warning">Edit</a>
-                        <form action="/produks/{{ $produk->id }}" method="POST"> --}}
-                        {{-- @method("DELETE") --}}
-                        {{-- @csrf --}}
-                        {{-- <input type="submit"  class="btn btn-danger" value="Delete"> --}}
-                        {{-- </form>
-                    </td>
-                  </tr> --}}
-                  {{-- @endforeach --}}
+                
               </tbody>
             </table>
            
@@ -73,4 +77,5 @@
       </div>
     </div>
   </div>
+</div>   --}}
 @endsection

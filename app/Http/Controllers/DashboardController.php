@@ -15,11 +15,17 @@ class DashboardController extends Controller
 
     public function index()
     {
-        // $data = [
-        //     'transaksi'=> $this->transaksi->allData(),
-        // ];
-        return view('dashboard.index');
+        $transaksis = transaksi::with('customers', 'produks')->latest()->paginate(3);
+
+        return view('dashboard.index',compact(['transaksis']));
         // , $data);
+    }
+
+    public function detail($id)
+    {
+        $transaksi = transaksi::with('customers', 'produks')->find($id);
+
+        return view('dashboard.detail',compact(['transaksi']));
     }
     
 }
