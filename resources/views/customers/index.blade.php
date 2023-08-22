@@ -8,7 +8,7 @@
     <div class="col-12">
       <div class="card mb-4">
         <div class="card-header pb-0">
-          <h6>Customers</h6>
+          <h6>Daftar Customer</h6>
           <a href="/customers/create" class="btn btn-primary float-end">Tambahkan+</a>
         </div>
         <div class="card-body px-0 pt-0 pb-2">

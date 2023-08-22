@@ -8,10 +8,6 @@ use App\Models\transaksi;
 
 class DashboardController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->transaksi = new transaksi();
-    // }
 
     public function index()
     {

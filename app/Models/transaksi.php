@@ -22,14 +22,6 @@ class transaksi extends Model
     {
         return $this->belongsTo(Produk::class, 'id_produk');
     }
-    // public function transaksi(){
-    //     return $this->hasMany(Produk::class)
-    // }
 
-    // public function allData(){
-    //     return DB::table('transaksi')
-    //     ->Join('customers', 'customers.id_customer', '=', 'transaksi.id_customer')
-    //     ->Join('produks', 'produks.id_produk', '=', 'transaksi.id_produk')
-    //     ->get();
-    // }
+    
 }
