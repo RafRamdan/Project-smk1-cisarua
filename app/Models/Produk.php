@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     use HasFactory;
+    // Mass assigment
     protected $guarded = [];
     protected $primaryKey = 'id_produk';
     protected $table = "produks";
@@ -15,6 +16,7 @@ class Produk extends Model
 
     public function transaksis()
     {
+        // 1 produk dapat memiliki banyak transaksi
         return $this->hasMany(transaksi::class);
     }
 }

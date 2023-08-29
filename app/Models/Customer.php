@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     use HasFactory;
+    // mass assigment
     protected $primaryKey = 'id_customer';
     protected $guarded = [];
     protected $table = "customers";
@@ -15,6 +16,7 @@ class Customer extends Model
 
     public function transaksis()
     {
+        // 1 customer dapat memiliki banyak transaksi 
         return $this->hasMany(transaksi::class);
     }
 

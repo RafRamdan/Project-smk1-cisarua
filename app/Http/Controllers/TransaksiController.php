@@ -15,6 +15,7 @@ class TransaksiController extends Controller
 {
     public function index()
     {
+        
         $transaksis = transaksi::with('customers', 'produks')->latest()->paginate(10);
 
         return view('transaksi.index',compact(['transaksis']));

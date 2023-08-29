@@ -12,9 +12,19 @@ use Illuminate\Support\Fancades\Storage;
 
 class ProdukController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $produks = Produk::paginate(10);
+        // $produks = Produk::paginate(10);
+        if($request->has('search')) {
+            $produks = Produk::where('name_produk', 'like' , '%' . $request->search . '%')
+            ->orwhere('max_length','like','%'.$request->search.'%')
+            ->orwhere('length','like','%'.$request->search.'%')
+            ->orwhere('width','like','%'.$request->search.'%')
+            ->orwhere('height','like','%'.$request->search.'%')->paginate(10);
+           }else{
+            $produks = Produk::paginate(10);
+           }
+   
 
         return view('produks.index',compact(['produks']));
     }

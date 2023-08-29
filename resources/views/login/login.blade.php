@@ -123,11 +123,11 @@
                     @csrf
                     <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
                     </div>
                     <label>Password</label>
                     <div class="mb-3">
-                      <input type="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                      <input type="password" name="password" class="form-control @error('password')is-invalid @enderror" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
                     </div>
                     {{-- <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">

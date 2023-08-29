@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 
 class CustomerController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $customers = Customer::paginate(10);
-
+        if($request->has('search')) {
+            $customers = Customer::where('name_customer','like','%'.$request->search.'%')
+            ->orwhere('email','like','%'.$request->search.'%')
+            ->orwhere('phone','like','%'.$request->search.'%')
+            ->orwhere('address','like','%'.$request->search.'%')->paginate(10);
+           }else{
+            $customers = Customer::paginate(10);
+           }
         return view('customers.index',
         compact(['customers']));
     }

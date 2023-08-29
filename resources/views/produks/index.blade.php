@@ -3,6 +3,14 @@
 @section('page')
     Produks
 @endsection
+@section('search')
+<form action="/produks">
+  <div class="input-group">
+    <span class="input-group-text text-body"><button class="btn " type="submit"><i class="fas fa-search" aria-hidden="true"></i></button></span>
+    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+  </div>
+</form>    
+@endsection
 @section('content')
 <div class="row">
     <div class="col-12">
