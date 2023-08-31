@@ -9,16 +9,24 @@ use App\Models\Produk;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Fancades\Storage;
+use Illuminate\Support\Fancades\DB;
 
 
 class TransaksiController extends Controller
 {
-    public function index()
-    {
-        
-        $transaksis = transaksi::with('customers', 'produks')->latest()->paginate(10);
+    public function __construct(){
+        $this->transaksi = new transaksi();
+    }
+    
+    public function index(){
 
-        return view('transaksi.index',compact(['transaksis']));
+        $transaksis = [
+            'datatransaksi'=> $this->transaksi->allData(),
+        ];
+      
+        // $transaksis = transaksi::with('customers', 'produks')->latest()->paginate(10);
+
+        return view('transaksi.index', $transaksis);
     }
 
     public function create()

@@ -3,6 +3,14 @@
 @section('page')
     Transaksi
 @endsection
+@section('search')
+<form action="/transaksi">
+  <div class="input-group">
+    <span class="input-group-text text-body"><button class="btn " type="submit"><i class="fas fa-search" aria-hidden="true"></i></button></span>
+    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+  </div>
+</form>    
+@endsection
 @section('content')
 <div class="row">
     <div class="col-12">
@@ -29,24 +37,24 @@
               </thead>
               <tbody>
                 <?php $no=1; ?>
-                  @foreach ($transaksis as $transaksi)
+                  @foreach ($datatransaksi as $item)
                   <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $transaksi->transaksi }}</td>
-                    <td>{{ $transaksi->customers->name_customer }}</td>
+                    <td>{{ $item->transaksi }}</td>
+                    <td>{{ $item->name_customer }}</td>
                     {{-- <td>{{ $transaksi->customers->email }}</td> --}}
-                    <td>{{ $transaksi->customers->phone }}</td>
-                    <td>{{ $transaksi->customers->address }}</td>
+                    <td>{{ $item->phone }}</td>
+                    <td>{{ $item->address }}</td>
                     <td>
-                      <img src="{{ asset('/storage/produks/'.$transaksi->produks->image) }}" class="rounded" style="width: 120px">
+                      <img src="{{ asset('/storage/produks/'.$item->image) }}" class="rounded" style="width: 120px">
                     </td>
                     <td>
-                      {{ $transaksi->produks->name_produk }}
+                      {{ $item->name_produk }}
                     </td>
                    
                     <td>
-                        <a href="/transaksi/{{ $transaksi->id_transaksi }}/edit" class="btn btn-warning">Edit</a>
-                        <form action="/transaksi/{{ $transaksi->id_transaksi }}" method="POST">
+                        <a href="/transaksi/{{ $item->id_transaksi }}/edit" class="btn btn-warning">Edit</a>
+                        <form action="/transaksi/{{ $item->id_transaksi }}" method="POST">
                         @method("DELETE")
                         @csrf
                         <input type="submit"  class="btn btn-danger" value="Delete">
@@ -63,6 +71,6 @@
     </div>
   </div>
   <div class="card-footer">
-    {{ $transaksis->links()  }}
+    {{ $datatransaksi->links()  }}
   </div>
 @endsection

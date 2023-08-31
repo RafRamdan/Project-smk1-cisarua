@@ -66,6 +66,16 @@
                   </select>
                 </div>
                 <div class="form-group">
+                  <label for="exampleInputEmail1">Gambar</label>
+                  <select class="form-control select2" style="width: 100%" name="id_produk" id="id_produk">
+                  <option disabled value>Pilih Gambar</option>
+                  @foreach ($transik as $item)
+                  <option value="{{ $item->id_produk }}">{{ $item->image }}</option>
+                  {{-- <input name="image" type="file" @error('image') is-invalid @enderror class="form-control" multiple id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Height"> --}}
+                  @endforeach
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="exampleInputEmail1">Pilih Nama Produk</label>
                   <select class="form-control select2" style="width: 100%" name="id_produk" id="id_produk">
                   <option disabled value>Pilih produk</option>

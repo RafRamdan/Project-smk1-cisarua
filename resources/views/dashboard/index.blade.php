@@ -3,6 +3,14 @@
 @section('page')
     Dashboard
 @endsection
+@section('search')
+<form action="/dashboard">
+  <div class="input-group">
+    <span class="input-group-text text-body"><button class="btn " type="submit"><i class="fas fa-search" aria-hidden="true"></i></button></span>
+    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+  </div>
+</form>    
+@endsection
 @section('content')
 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
  @foreach ($transaksis as $transaksi)    
