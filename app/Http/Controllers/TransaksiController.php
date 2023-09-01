@@ -12,21 +12,52 @@ use Illuminate\Support\Fancades\Storage;
 use Illuminate\Support\Fancades\DB;
 
 
+
 class TransaksiController extends Controller
 {
     public function __construct(){
         $this->transaksi = new transaksi();
     }
     
-    public function index(){
+    public function index(Request $request){
 
-        $transaksis = [
-            'datatransaksi'=> $this->transaksi->allData(),
-        ];
-      
-        // $transaksis = transaksi::with('customers', 'produks')->latest()->paginate(10);
+        // $transaksis ['search'] = $request->query('search'); ['datatransaksi']
+        $transaksis  = transaksi::join('customers', 'customers.id_customer', '=', 'transaksis.id_customer')
+                      ->join('produks', 'produks.id_produk', '=', 'transaksis.id_produk')
+                      ->orderBy('transaksis.created_at', 'desc')
+                      ->paginate(15);
+        // $transaksis = [
+        //     'datatransaksi' => $this->transaksi->allData(),
+        // ];
+        if ($request->keyword != null) {
+            $transaksis = transaksi::join('customers', 'customers.id_customer', '=', 'transaksis.id_customer')
+                          ->join('produks', 'produks.id_produk', '=', 'transaksis.id_produk')
+                          ->where('name_customer', 'like', '%'.$request->keyword. '%')
+                          ->orwhere('name_produk', 'like' ,'%'.$request->keyword. '%')
+                          ->orwhere('phone', 'like' ,'%'.$request->keyword. '%')
+                          ->orwhere('address', 'like' ,'%'.$request->keyword. '%')
+                          ->orwhere('transaksi', 'like' ,'%'.$request->keyword. '%')
+                          ->orderBy('transaksis.created_at', 'desc')
+                          ->paginate(10);
 
-        return view('transaksi.index', $transaksis);
+                        }
+                        
+        return view('transaksi.index',compact(['transaksis']));
+        // $transaksis = transaksi::with('customers', 'produks')->latest()->paginate(10);| 
+    }
+
+    public function search(Request $request){
+
+        $search = $request->search;
+
+        $transaksis =transaksi::where(function ($query) use ($search){
+
+            $query->where('name_customer', 'like', '%' .$search . '%')
+            ->orwhere('name_produk', 'like', '%' .$search . '%');
+        })
+        ->get();
+
+        return view('transaksi.index',compact('transaksis', 'search'));
     }
 
     public function create()

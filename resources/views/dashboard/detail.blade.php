@@ -88,7 +88,7 @@
               <div class="col-lg-4 mb-5">
                 <div class="card">
                   <!-- Product details-->
-                  <div class="card-body card-body-custom pt-4">
+                  {{-- <div class="card-body card-body-custom pt-4">
                     <div class="text-center">
                       <!-- Product name-->
                       <div class="d-flex justify-content-between align-items-center">
@@ -112,7 +112,7 @@
                         </li>
                       </ul>
                     </div>
-                  </div>
+                  </div> --}}
                   <!-- Product actions-->
                   {{-- <div class="card-footer border-top-0 bg-transparent">
                     <div class="text-center">

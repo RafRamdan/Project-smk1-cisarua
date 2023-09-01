@@ -4,10 +4,10 @@
     Transaksi
 @endsection
 @section('search')
-<form action="/transaksi">
+<form action="/transaksi" >
   <div class="input-group">
     <span class="input-group-text text-body"><button class="btn " type="submit"><i class="fas fa-search" aria-hidden="true"></i></button></span>
-    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+    <input type="text" class="form-control" placeholder="Search..." name="keyword" >
   </div>
 </form>    
 @endsection
@@ -37,7 +37,7 @@
               </thead>
               <tbody>
                 <?php $no=1; ?>
-                  @foreach ($datatransaksi as $item)
+                  @foreach ($transaksis as $item)
                   <tr>
                     <td>{{ $no++ }}</td>
                     <td>{{ $item->transaksi }}</td>
@@ -71,6 +71,6 @@
     </div>
   </div>
   <div class="card-footer">
-    {{ $datatransaksi->links()  }}
+    {{ $transaksis->links()  }}
   </div>
 @endsection

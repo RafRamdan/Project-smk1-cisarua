@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\SesiController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SesiController;
+use App\Http\Controllers\TransaksiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +49,11 @@ Route::put('/produks/{id_produk}',[\App\Http\Controllers\ProdukController::class
 Route::delete('/produks/{id_produk}',[\App\Http\Controllers\ProdukController::class,'destroy']);
 Route::resource('/produks', \App\Http\Controllers\ProdukController::class);
 
-Route::get('/transaksi',[\App\Http\Controllers\TransaksiController::class,'index']);
+Route::get('/transaksi',[\App\Http\Controllers\TransaksiController::class,'index'])->name('transaksi');
 Route::post('/transaksi',[\App\Http\Controllers\TransaksiController::class,'store']);
 Route::get('/transaksi/create',[\App\Http\Controllers\TransaksiController::class,'create']);
 Route::get('/transaksi/{id_transaksi}/edit',[\App\Http\Controllers\TransaksiController::class,'edit']);
 Route::put('/transaksi/{id_transaksi}',[\App\Http\Controllers\TransaksiController::class,'update']);
 Route::delete('/transaksi/{id_transaksi}',[\App\Http\Controllers\TransaksiController::class,'destroy']);
 });
-
+// Route::get('/search',[TransaksiController::class,'search']);

@@ -7,7 +7,7 @@
 <form action="/dashboard">
   <div class="input-group">
     <span class="input-group-text text-body"><button class="btn " type="submit"><i class="fas fa-search" aria-hidden="true"></i></button></span>
-    <input type="text" class="form-control" placeholder="Search..." name="search" value="{{ request('search') }}">
+    <input type="text" class="form-control" placeholder="Search..." name="keyword" value="{{ request('search') }}">
   </div>
 </form>    
 @endsection
