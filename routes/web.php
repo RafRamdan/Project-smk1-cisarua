@@ -37,7 +37,7 @@ Route::get('/customers',[\App\Http\Controllers\CustomerController::class,'index'
 Route::post('/customers',[\App\Http\Controllers\CustomerController::class,'store']);
 Route::get('/customers/create',[\App\Http\Controllers\CustomerController::class,'create']);
 Route::get('/customers{id_customer}/edit',[\App\Http\Controllers\CustomerController::class,'edit']);
-Route::put('/customers/{idcustomer}',[\App\Http\Controllers\CustomerController::class,'update']);
+Route::put('/customers/{id_customer}',[\App\Http\Controllers\CustomerController::class,'update']);
 Route::delete('/customers/{id_customer}',[\App\Http\Controllers\CustomerController::class,'destroy']);
 
 
